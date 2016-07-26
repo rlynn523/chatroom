@@ -7,9 +7,9 @@
         "build": "npm run clean && npm run build:css",
         "watch": "npm run watch:css",
         "clean": "rm -rf build",
-        "build:css": "npm run clean:css && lessc --source-map css/index.less build/$npm_package_name.$npm_package_version.css",
+        "build:css": "npm run clean:css && lessc --source-map public/css/index.less public/build/$npm_package_name.$npm_package_version.css",
         "watch:css": "npm run build:css && 'css/**/*.less' -c 'npm run build:css'",
-        "clean:css": "rm -f build/$npm_package_name.$npm_package_version.css build/$npm_package_name.$npm_package_version.css.map",
+        "clean:css": "rm -f public/build/$npm_package_name.$npm_package_version.css build/$npm_package_name.$npm_package_version.css.map",
         "start": "node server.js"
     },
     "repository": {

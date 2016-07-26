@@ -5,15 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chatroom</title>
-    <link rel="stylesheet" href="chatroom.1.0.0.css">
+    <link href="https://fonts.googleapis.com/css?family=Mirza|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="build/chatroom.1.0.0.css">
     <script src="//code.jquery.com/jquery-2.1.0.js"></script>
     <script src="main.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
-    <input type="text" id="username" placeholder="Please enter a username...">
-    <input type="text" id="message">
-    <div id="userTyping"></div>
-    <div id="messages"></div>
+    <div class="chatroom">
+        <p class="title">Chatroom</p>
+        <div class="usernames">
+            <input type="text" id="username" placeholder="Please enter a username...">
+        </div>
+        <div class="messages">
+            <input type="text" id="message" placeholder="Send a message...">
+        </div>
+        <div id="userTyping"></div>
+        <div id="messages"></div>
+    </div>
 </body>

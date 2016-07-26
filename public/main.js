@@ -8,7 +8,7 @@ $(document).ready(function() {
     var messages = $('#messages');
     var username = $('#username');
     // function which appends a new <div> to the messages
-    var addMessage = function(message) {
+    var addMessage = function(message, username) {
         messages.append('<div>' + message + '</div>');
     };
     var userType = function(message) {
@@ -27,11 +27,11 @@ $(document).ready(function() {
         if (event.keyCode != 13) {
             return;
         }
-        addMessage(message);
+        addMessage(message, username);
         /* this sends a message to the Socket.IO server. the first argument
         is a name for our message, the second argument is some data to attach
         to our message */
-        socket.emit('message', message);
+        socket.emit('message', message, username);
         socket.emit('typing', false);
         input.val('');
     });

@@ -1,0 +1,52 @@
+@import "normalize.css";
+html {
+  	box-sizing: border-box;
+}
+*, *:before, *:after {
+ 	box-sizing: inherit;
+}
+
+@blue-grey: #607D8B;
+@light: #CFD8DC;
+@dark: #455A64;
+@green: #4CAF50;
+@light-text: #FFFFFF;
+
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color: @blue-grey;
+}
+.title {
+    font-family: 'Mirza', cursive;
+    font-size: 3em;
+    padding-top: .75em;
+    text-align: center;
+}
+.chatroom {
+    background-color: @light;
+    width: 40%;
+    height: 15%;
+    margin: 0 auto;
+}
+#username, #message, #userTyping {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.usernames, .messages {
+    margin-bottom: 15%;
+}
+#messages {
+    font-family: 'Roboto', sans-serif;
+    color: @light-text;
+    background-color: @dark;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin: 1em;
+}
+#userTyping {
+    background-color: @green;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}

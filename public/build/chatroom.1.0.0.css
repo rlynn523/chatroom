@@ -1,0 +1,51 @@
+@import "normalize.css";
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: #607D8B;
+}
+.title {
+  font-family: 'Mirza', cursive;
+  font-size: 3em;
+  padding-top: .75em;
+  text-align: center;
+}
+.chatroom {
+  background-color: #CFD8DC;
+  width: 40%;
+  height: 15%;
+  margin: 0 auto;
+}
+#username,
+#message,
+#userTyping {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.usernames,
+.messages {
+  margin-bottom: 15%;
+}
+#messages {
+  font-family: 'Roboto', sans-serif;
+  color: #FFFFFF;
+  background-color: #455A64;
+  padding-left: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin: 1em;
+}
+#userTyping {
+  background-color: #4CAF50;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+/*# sourceMappingURL=chatroom.1.0.0.css.map */
