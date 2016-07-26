@@ -35,12 +35,11 @@ body {
   margin-bottom: 15%;
 }
 #messages {
+  word-wrap: break-word;
   font-family: 'Roboto', sans-serif;
   color: #FFFFFF;
   background-color: #455A64;
-  padding-left: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 1em;
   margin: 1em;
 }
 #userTyping {
