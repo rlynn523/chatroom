@@ -1,6 +1,7 @@
 var socket_io = require('socket.io');
 var http = require('http');
 var express = require('express');
+var moment = require('moment');
 
 var app = express();
 app.use(express.static('public'));
@@ -10,16 +11,25 @@ var server = http.Server(app);
 /* initialize an io object by passing the server into the socket_io function.
 this creates a Socket.IO Server, wich is an EventEmitter */
 var io = socket_io(server);
-var clientNumber = 1;
+var clients = {};
 
 /* add a listener to the connection event of the server. this will be called
 whevenver a new client connects to the Socket.IO server */
 io.on('connection', function(socket) {
-    console.log('Client connected');
-    console.log('Client total ' + (clientNumber++));
-    socket.on('disconnect', function() {
-        io.emit('message', 'Client disconnected');
+    socket.on('logIn', function(username) {
+        clients[socket.client.id] = username;
     });
+    var id = socket.client.id;
+    var time = moment().format('LTS');
+    socket.on('typing', function(message) {
+        var id = socket.client.id;
+        if(message) {
+            socket.broadcast.emit('typing', clients[id] + ' is typing...');
+        } else {
+            socket.broadcast.emit('typing', '');
+        }
+    });
+    socket.broadcast.emit('message', id + ' connected at ' + time);
     /* add a listener to the socket which is used to communicate with the
     client. when a message with the name message is recieved on the socket, you
     simply print out the message */
@@ -30,6 +40,11 @@ io.on('connection', function(socket) {
         whose socket object you are using. it is used to broadcast the message
         that you recievd from a client to all the other clients */
         socket.broadcast.emit('message', message);
+    });
+    socket.on('disconnect', function() {
+        var id = socket.client.id;
+        var time = moment().format('LTS');
+        socket.broadcast.emit('message', clients[id] + ' disconnected at ' + time);
     });
 });
 
