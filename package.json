@@ -1,16 +1,31 @@
 {
-  "name": "chatroom",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.14.0",
-    "moment": "^2.14.1",
-    "socket.io": "^1.4.8"
-  }
+    "name": "chatroom",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "npm run clean && npm run build:css",
+        "watch": "npm run watch:css",
+        "clean": "rm -rf build",
+        "build:css": "npm run clean:css && lessc --source-map css/index.less build/$npm_package_name.$npm_package_version.css",
+        "watch:css": "npm run build:css && 'css/**/*.less' -c 'npm run build:css'",
+        "clean:css": "rm -f build/$npm_package_name.$npm_package_version.css build/$npm_package_name.$npm_package_version.css.map",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rlynn523/chatroom.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rlynn523/chatroom/issues"
+    },
+    "homepage": "https://github.com/rlynn523/chatroom#readme",
+    "dependencies": {
+        "express": "^4.14.0",
+        "less": "^2.7.1",
+        "moment": "^2.14.1",
+        "socket.io": "^1.4.8"
+    }
 }
